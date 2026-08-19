@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | DS Vision</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Logo DS Vision">
+
+        <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="menu">
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact">
+            <h2>Contactez-nous</h2>
+            <p>Nous sommes à votre disposition pour tous vos projets.</p>
+
+            <div class="contact-info">
+                <p>📍 Rufisque, Sénégal</p>
+                <p>📞 +221 78 581 96 99</p>
+                <p>📧 contact@dsvision.sn</p>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre e-mail" required>
+                <textarea placeholder="Votre message" rows="6" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+
+            <a href="https://wa.me/221785819699" class="whatsapp-btn" target="_blank">
+                💬 Discuter sur WhatsApp
+            </a>
+        </section>
+
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/221785819699" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <section class="map-section">
+            <h2>Notre localisation</h2>
+            <iframe
+                src="https://www.google.com/maps?q=Rufisque,+Sénégal&output=embed"
+                width="100%"
+                height="350"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 DS Vision - Agence de Communication Digitale</p>
+        <p>Rufisque - Sénégal</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

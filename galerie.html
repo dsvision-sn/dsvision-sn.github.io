@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie | DS Vision</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Logo DS Vision">
+
+        <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="menu">
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services</a>
+            <a href="galerie.html" class="active">Galerie</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Notre Galerie</h1>
+        <p>Découvrez nos réalisations en photographie, vidéographie et design graphique.</p>
+
+        <!-- BOUTONS DE FILTRE (OPTIONNEL) -->
+        <div class="hero-buttons">
+            <button class="btn" onclick="filtrerGalerie('tous')">Tous</button>
+            <button class="btn" onclick="filtrerGalerie('photo')">Photos</button>
+            <button class="btn" onclick="filtrerGalerie('design')">Design</button>
+        </div>
+
+        <section class="gallery">
+            <div class="gallery-grid">
+
+                <div class="photo photo-item">
+                    <img src="images/photo1.jpg" alt="Réalisation DS Vision 1" onclick="ouvrirLightbox(this)">
+                </div>
+
+                <div class="photo photo-item">
+                    <img src="images/photo2.jpg" alt="Réalisation DS Vision 2" onclick="ouvrirLightbox(this)">
+                </div>
+
+                <div class="photo photo-item">
+                    <img src="images/photo3.jpg" alt="Réalisation DS Vision 3" onclick="ouvrirLightbox(this)">
+                </div>
+
+                <div class="photo photo-item">
+                    <img src="images/photo4.jpg" alt="Réalisation DS Vision 4" onclick="ouvrirLightbox(this)">
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 DS Vision - Agence de Communication Digitale</p>
+        <p>Rufisque - Sénégal</p>
+        <a href="https://wa.me/221785819699" class="whatsapp-btn" target="_blank">
+            💬 Discuter sur WhatsApp
+        </a>
+    </footer>
+
+    <!-- LIGHTBOX / VISIONNEUSE -->
+    <div id="lightbox" class="lightbox">
+        <span id="closeLightbox" onclick="fermerLightbox()">&times;</span>
+        <button id="prevBtn" onclick="imagePrecedente()"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="lightboxImage" src="" alt="Image agrandie">
+        <button id="nextBtn" onclick="imageSuivante()"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

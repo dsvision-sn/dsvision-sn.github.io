@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Vision | Agence de Communication Digitale</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Logo DS Vision">
+        <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">☰</button>
+        <nav id="menu">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="services.html">Services</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>DS Vision</h1>
+            <p>Votre partenaire en photographie, vidéographie, design graphique, création de sites web et communication digitale.</p>
+            
+            <div class="hero-buttons">
+                <a href="services.html" class="btn">Nos Services</a>
+                <a href="contact.html" class="btn">Nous Contacter</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="images/photo1.jpg" alt="DS Vision" id="photoDemo" onclick="ouvrirLightbox(this)">
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services">
+            <h2>Nos Services</h2>
+            <div class="services-container">
+                <div class="service">
+                    <h3>📷 Photographie</h3>
+                    <p>Portrait, mariage, anniversaire et séances professionnelles.</p>
+                </div>
+                <div class="service">
+                    <h3>🎥 Vidéographie</h3>
+                    <p>Clips, publicités, vidéos d'entreprise et couverture d'événements.</p>
+                </div>
+                <div class="service">
+                    <h3>🎨 Design Graphique</h3>
+                    <p>Logos, affiches, flyers et identité visuelle.</p>
+                </div>
+                <div class="service">
+                    <h3>🌐 Création Web</h3>
+                    <p>Sites vitrines, portfolios et sites professionnels sur mesure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVANTAGES -->
+        <section class="advantages">
+            <h2>Pourquoi choisir DS Vision ?</h2>
+            <div class="advantages-container">
+                <div class="advantage">
+                    <h3>⭐ Qualité professionnelle</h3>
+                    <p>Des visuels haute définition avec un rendu d'excellence.</p>
+                </div>
+                <div class="advantage">
+                    <h3>⚡ Livraison rapide</h3>
+                    <p>Respect strict des délais d'achèvement de vos projets.</p>
+                </div>
+                <div class="advantage">
+                    <h3>🤝 Accompagnement</h3>
+                    <p>Un suivi personnalisé de l'idée jusqu'à la livraison finalisée.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTIQUES -->
+        <section class="stats">
+            <div class="stat-card">
+                <h2>150+</h2>
+                <p>Séances photo</p>
+            </div>
+            <div class="stat-card">
+                <h2>80+</h2>
+                <p>Vidéos réalisées</p>
+            </div>
+            <div class="stat-card">
+                <h2>120+</h2>
+                <p>Clients satisfaits</p>
+            </div>
+            <div class="stat-card">
+                <h2>5+</h2>
+                <p>Années d'expérience</p>
+            </div>
+        </section>
+
+        <!-- APPEL À L'ACTION / FORMULAIRE DE CONTACT -->
+        <section class="cta" id="contact">
+            <h2>Prêt à réaliser votre projet ?</h2>
+            <p>Contactez DS Vision dès aujourd'hui pour donner vie à vos idées.</p>
+
+            <!-- Formulaire compatible GitHub Pages via Formspree -->
+            <form action="https://formspree.io/f/TON_CODE_FORMSPREE" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="nom" placeholder="Votre Nom complet" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Votre E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="telephone" placeholder="Numéro Téléphone (ex: 785819699)">
+                </div>
+                <div class="form-group">
+                    <select name="service">
+                        <option value="Photographie">📷 Photographie</option>
+                        <option value="Vidéographie">🎥 Vidéographie</option>
+                        <option value="Design Graphique">🎨 Design Graphique</option>
+                        <option value="Création Web">🌐 Création Web</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Décrivez votre projet..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Envoyer la demande</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 DS Vision - Agence de Communication Digitale</p>
+        <p>Rufisque - Sénégal</p>
+        <a href="https://wa.me/221785819699" class="whatsapp-btn" target="_blank">💬 Discuter sur WhatsApp</a>
+    </footer>
+
+    <!-- LIGHTBOX / VISIONNEUSE -->
+    <div id="lightbox" class="lightbox">
+        <span id="closeLightbox" onclick="fermerLightbox()">&times;</span>
+        <button id="prevBtn" onclick="imagePrecedente()"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="lightboxImage" src="" alt="Image agrandie">
+        <button id="nextBtn" onclick="imageSuivante()"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

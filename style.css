@@ -1,0 +1,571 @@
+/* ==========================================================================
+   1. VARIABLES & REINITIALISATION
+   ========================================================================== */
+:root {
+    --couleur-principale: gold;
+    --couleur-secondaire: #1da851;
+    --couleur-fond: #000000;
+    --couleur-carte: #222222;
+    --couleur-carte-alt: #1f1f1f;
+    --texte-blanc: #ffffff;
+    --texte-gris: #dddddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, var(--couleur-fond), #1a1a1a);
+    color: var(--texte-blanc);
+    text-align: center;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHIE & ELEMENTS DE BASE
+   ========================================================================== */
+h1 {
+    color: var(--couleur-principale);
+}
+
+h2 {
+    color: var(--couleur-principale);
+    font-size: 36px;
+}
+
+p {
+    color: var(--texte-gris);
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   3. EN-TÊTE & NAVIGATION
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--couleur-fond);
+    border-bottom: 2px solid var(--couleur-principale);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    height: 70px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+header img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px var(--couleur-principale));
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--texte-blanc);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--couleur-principale);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--couleur-principale);
+}
+
+.menu-btn {
+    display: none;
+    background: #c8a44d;
+    color: var(--texte-blanc);
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   4. CONTENU PRINCIPAL & BOUTONS
+   ========================================================================== */
+main {
+    padding: 60px 20px;
+}
+
+main p {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.hero-buttons {
+    margin: 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--couleur-principale);
+    color: var(--couleur-fond);
+    text-decoration: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--texte-blanc);
+    color: var(--couleur-fond);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-image {
+    margin-top: 50px;
+}
+
+.hero-image img {
+    width: 350px;
+    max-width: 90%;
+    border-radius: 20px;
+    border: 3px solid var(--couleur-principale);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   5. SECTIONS & GRILLES (Services, Avantages, Portfolio, etc.)
+   ========================================================================== */
+.about, .gallery, .advantages, .portfolio, .why-us, .testimonials, .cta {
+    margin: 80px 20px;
+}
+
+.services,
+.services-container,
+.advantages-container,
+.portfolio-container,
+.why-container,
+.testimonial-container,
+.stats,
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.service,
+.advantage,
+.why-card,
+.testimonial-card,
+.stat-card,
+.portfolio-card {
+    background: var(--couleur-carte);
+    border-radius: 15px;
+    padding: 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: apparition 0.8s ease;
+}
+
+.service, .why-card {
+    width: 260px;
+    border: 2px solid transparent;
+}
+
+.advantage {
+    width: 280px;
+    background: var(--couleur-carte-alt);
+}
+
+.service h3,
+.advantage h3,
+.why-card h3,
+.portfolio-card h3,
+.testimonial-card h4,
+.stat-card h2 {
+    color: var(--couleur-principale);
+    transition: color 0.3s ease;
+}
+
+.service:hover h3,
+.portfolio-card:hover h3 {
+    color: var(--texte-blanc);
+}
+
+.service:hover,
+.advantage:hover,
+.why-card:hover,
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--couleur-principale);
+    box-shadow: 0 12px 25px rgba(255, 215, 0, 0.25);
+}
+
+/* STATISTIQUES */
+.stat-card {
+    width: 200px;
+    border: 2px solid var(--couleur-principale);
+}
+
+.stat-card h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* TEMOIGNAGES */
+.testimonial-card {
+    width: 300px;
+    border-left: 5px solid var(--couleur-principale);
+}
+
+.testimonial-card p {
+    font-style: italic;
+}
+
+/* PORTFOLIO & GALERIE */
+.portfolio-card {
+    width: 280px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+}
+
+.portfolio-card h3 {
+    padding: 20px;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.08);
+    opacity: 0.9;
+}
+
+.photo {
+    width: 250px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid var(--couleur-principale);
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+}
+
+/* CALL TO ACTION */
+.cta {
+    padding: 60px 20px;
+    background: var(--couleur-carte);
+    border: 2px solid var(--couleur-principale);
+    border-radius: 20px;
+}
+
+.cta p {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+/* ==========================================================================
+   6. CONTACT & FORMULAIRE
+   ========================================================================== */
+.contact-info {
+    margin-top: 40px;
+}
+
+.contact-info p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 2px solid var(--couleur-principale);
+    border-radius: 10px;
+    background: var(--couleur-carte);
+    color: var(--texte-blanc);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--texte-blanc);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.contact-form .btn {
+    align-self: center;
+}
+
+/* ==========================================================================
+   7. PIED DE PAGE & RESEAUX
+   ========================================================================== */
+footer {
+    margin-top: 80px;
+    padding: 30px 20px;
+    border-top: 2px solid var(--couleur-principale);
+    text-align: center;
+}
+
+footer p {
+    color: #cccccc;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #25D366;
+    color: var(--texte-blanc);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: var(--couleur-secondaire);
+    transform: translateY(-3px);
+}
+
+.social-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    width: 55px;
+    height: 55px;
+    background: var(--couleur-carte);
+    color: var(--couleur-principale);
+    border: 2px solid var(--couleur-principale);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: var(--couleur-principale);
+    color: var(--couleur-fond);
+    transform: translateY(-5px);
+}
+
+.map-section {
+    margin-top: 60px;
+}
+
+.map-section iframe {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   8. LIGHTBOX
+   ========================================================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+#closeLightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--texte-blanc);
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#closeLightbox:hover {
+    color: var(--couleur-principale);
+    transform: scale(1.15);
+}
+
+#prevBtn,
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--couleur-principale);
+    border: 2px solid var(--couleur-principale);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#prevBtn { left: 30px; }
+#nextBtn { right: 30px; }
+
+#prevBtn:hover,
+#nextBtn:hover {
+    background: var(--couleur-principale);
+    color: var(--couleur-fond);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ==========================================================================
+   9. ANIMATIONS & RESPONSIVE DESIGN
+   ========================================================================== */
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 10px 0;
+    }
+
+    .photo {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .lightbox img {
+        max-width: 85%;
+        max-height: 75vh;
+    }
+
+    #prevBtn { left: 10px; }
+    #nextBtn { right: 10px; }
+    #closeLightbox {
+        top: 10px;
+        right: 15px;
+        font-size: 32px;
+    }
+}
